@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var formViewModel = FormViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            Form {
+                Section("Введите имя пользователя") {
+                    TextField("Имя пользователя", text: $formViewModel.userName)
+                        .autocapitalization(.none)
+                }
+                
+                Section("Введите пароль") {
+                    SecureField("Пароль", text: $formViewModel.password)
+                    SecureField("Пароль повторно", text: $formViewModel.password)
+                }
+                
+                Section {
+                    Button(action: {}) { Text("Зарегистрироваться") }.disabled(!self.formViewModel.isValid)
+                }
+            }
+            .navigationTitle("Регистрация")
+            .navigationBarTitleDisplayMode(.large)
+        }
     }
 }
 
