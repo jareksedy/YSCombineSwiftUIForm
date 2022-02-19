@@ -7,3 +7,12 @@
 
 import Combine
 
+class FormViewModel: ObservableObject {
+    // input
+    @Published var userName = ""
+    @Published var password = ""
+    @Published var passwordAgain = ""
+    
+    // output
+    @Published var isValid = false
+}
