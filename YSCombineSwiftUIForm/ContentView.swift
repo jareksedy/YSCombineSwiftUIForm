@@ -20,7 +20,7 @@ struct ContentView: View {
                 
                 Section("Введите пароль") {
                     SecureField("Пароль", text: $formViewModel.password)
-                    SecureField("Пароль повторно", text: $formViewModel.password)
+                    SecureField("Пароль повторно", text: $formViewModel.passwordAgain)
                 }
                 
                 Section {
@@ -30,11 +30,5 @@ struct ContentView: View {
             .navigationTitle("Регистрация")
             .navigationBarTitleDisplayMode(.large)
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().preferredColorScheme(.dark)
     }
 }
